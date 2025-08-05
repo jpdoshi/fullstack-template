@@ -66,7 +66,7 @@ const AppLayout = ({ children }: any) => {
         }`}
       >
         {/* Sidebar Header */}
-        <div className="p-1.5">
+        <div className="p-1.5 border-b border-gray-200">
           <img
             src="https://placehold.co/150x120"
             className="w-full rounded-lg"
