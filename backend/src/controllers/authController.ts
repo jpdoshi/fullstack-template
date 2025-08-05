@@ -50,8 +50,6 @@ export const refreshToken = async (req: Request, res: Response) => {
     const payload = jwt.verify(token, process.env.JWT_REFRESH_SECRET!) as any;
     const user = await User.findByPk(payload.userId);
 
-    console.log(user?.dataValues.id);
-
     if (!user || user.dataValues.refreshToken !== token)
       return res.sendStatus(403);
 
@@ -67,9 +65,9 @@ export const logout = async (req: Request, res: Response) => {
   const user = await User.findOne({ where: { refreshToken: token } });
 
   if (user) {
-    user.refreshToken = null;
+    user.set({ refreshToken: null });
     await user.save();
   }
 
-  res.sendStatus(204);
+  res.json({ success: true, message: "Logout success" });
 };
