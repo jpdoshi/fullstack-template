@@ -2,8 +2,8 @@ import {
   Bars3BottomLeftIcon,
   CogIcon,
   HomeIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+  UserCircleIcon,
+} from "@heroicons/react/24/solid";
 import { useState } from "react";
 import MenuItem from "./UI/MenuItem";
 
@@ -24,7 +24,7 @@ const AppLayout = ({ children }: any) => {
       isExpanded={isExpanded}
     />,
     <MenuItem
-      icon={<UserIcon />}
+      icon={<UserCircleIcon />}
       text={"Profile"}
       href="/profile"
       isExpanded={isExpanded}
@@ -35,7 +35,7 @@ const AppLayout = ({ children }: any) => {
     <main className="h-screen w-screen">
       {/* Header */}
       <header
-        className={`fixed top-0 z-40 h-[60px] shadow-md duration-300 bg-white border-b border-gray-200 ${
+        className={`fixed top-0 z-40 h-[60px] shadow-md duration-300 bg-[#fafafa] border-b border-gray-200 ${
           isExpanded
             ? "left-[220px] w-[calc(100vw-220px)]"
             : "left-[80px] w-[calc(100vw-80px)]"
@@ -44,16 +44,16 @@ const AppLayout = ({ children }: any) => {
         <div className="h-full flex flex-row justify-between items-center px-5">
           <button
             onClick={() => setIsExpanded((prev) => !prev)}
-            className="size-10 p-2 rounded-md duration-300 hover:text-blue-600 hover:bg-gray-100"
+            className="size-8 p-1 rounded-md duration-300 hover:text-indigo-600 border bg-white border-gray-200 hover:bg-indigo-50 hover:border-indigo-300"
           >
             <Bars3BottomLeftIcon />
           </button>
-          <div className="flex gap-1">
-            <button className="size-10 p-2 rounded-md duration-300 hover:text-blue-600 hover:bg-gray-100">
+          <div className="flex gap-2">
+            <button className="size-8 p-1 rounded-md duration-300 hover:text-indigo-600 hover:bg-indigo-50">
               <CogIcon />
             </button>
-            <button className="size-10 p-2 rounded-md duration-300 hover:text-blue-600 hover:bg-gray-100">
-              <UserIcon />
+            <button className="size-8 p-1 rounded-md duration-300 hover:text-indigo-600 hover:bg-indigo-50">
+              <UserCircleIcon />
             </button>
           </div>
         </div>
@@ -64,6 +64,7 @@ const AppLayout = ({ children }: any) => {
         className={`fixed top-0 left-0 h-screen overflow-y-auto z-50 bg-white border-r border-gray-200 shadow-lg duration-300 ${
           isExpanded ? "w-[220px]" : "w-[80px]"
         }`}
+        style={{ overflow: "visible" }}
       >
         {/* Sidebar Header */}
         <div className="p-1.5 border-b border-gray-200">
