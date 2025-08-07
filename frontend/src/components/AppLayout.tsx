@@ -11,13 +11,12 @@ import {
   UsersIcon,
   WalletIcon,
 } from "@heroicons/react/24/solid";
-import { useState } from "react";
 import MenuItem from "./UI/MenuItem";
 import SubMenuItem from "./UI/SubMenuItem";
-import useSidebar from "../hooks/UI/useSidebar";
+import { useState } from "react";
 
 const AppLayout = ({ children }: any) => {
-  const { isExpanded, setIsExpanded } = useSidebar();
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const menuItems = [
     <MenuItem
@@ -31,19 +30,12 @@ const AppLayout = ({ children }: any) => {
         icon={<CheckBadgeIcon />}
         text="Client Onboarding"
         href="/onboarding"
-        isExpanded={true}
       />
-      <MenuItem
-        icon={<ListBulletIcon />}
-        text="Clients List"
-        href="/clients"
-        isExpanded={true}
-      />
+      <MenuItem icon={<ListBulletIcon />} text="Clients List" href="/clients" />
       <MenuItem
         icon={<PresentationChartLineIcon />}
         text="Sales Report"
         href="/sales"
-        isExpanded={true}
       />
     </SubMenuItem>,
     <SubMenuItem
@@ -51,17 +43,11 @@ const AppLayout = ({ children }: any) => {
       text={"Finance"}
       isExpanded={isExpanded}
     >
-      <MenuItem
-        icon={<WalletIcon />}
-        text="Expense List"
-        href="/expenses"
-        isExpanded={true}
-      />
+      <MenuItem icon={<WalletIcon />} text="Expense List" href="/expenses" />
       <MenuItem
         icon={<DocumentCheckIcon />}
         text="Invoice List"
         href="/invoices"
-        isExpanded={true}
       />
     </SubMenuItem>,
     <MenuItem

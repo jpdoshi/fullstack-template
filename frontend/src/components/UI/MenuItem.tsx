@@ -7,7 +7,7 @@ interface MenuProps {
   isExpanded?: boolean;
 }
 
-const MenuItem = ({ icon, text, href, isExpanded }: MenuProps) => {
+const MenuItem = ({ icon, text, href, isExpanded = true }: MenuProps) => {
   const { pathname } = useLocation();
 
   const isActive = pathname === href;

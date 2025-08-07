@@ -1,15 +1,16 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/solid";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactElement } from "react";
 import { useLocation } from "react-router";
+import type MenuItem from "./MenuItem";
 
-interface MenuProps {
+interface SubMenuProps {
   icon: any;
   text: string;
   isExpanded: boolean;
-  children: any;
+  children: ReactElement<typeof MenuItem>[];
 }
 
-const SubMenuItem = ({ icon, text, isExpanded, children }: MenuProps) => {
+const SubMenuItem = ({ icon, text, isExpanded, children }: SubMenuProps) => {
   const [showSubMenu, setShowSubMenu] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const hoverTimeoutRef = useRef<any>(null);
