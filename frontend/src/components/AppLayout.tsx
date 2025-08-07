@@ -65,7 +65,7 @@ const AppLayout = ({ children }: any) => {
   ];
 
   return (
-    <main className="h-screen w-screen">
+    <div>
       {/* Header */}
       <header
         className={`fixed top-0 z-40 h-[60px] shadow-md duration-300 bg-gradient-to-b from-white to-gray-50 border-b border-gray-200 ${
@@ -77,7 +77,7 @@ const AppLayout = ({ children }: any) => {
         <div className="h-full flex flex-row justify-between items-center px-5">
           <button
             onClick={() => setIsExpanded((prev) => !prev)}
-            className="size-8 p-1 rounded-md duration-300 hover:text-indigo-600 border bg-white border-gray-200 hover:bg-indigo-50 hover:border-indigo-200"
+            className="size-8 p-1 rounded-md duration-300 hover:text-indigo-600 border bg-white border-gray-200 shadow-md hover:bg-indigo-50 hover:border-indigo-200"
           >
             <Bars3BottomLeftIcon />
           </button>
@@ -95,7 +95,7 @@ const AppLayout = ({ children }: any) => {
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 h-screen z-50 bg-white border-r border-gray-200 shadow-lg duration-300 ${
-          isExpanded ? "w-[220px]" : "w-[80px]"
+          isExpanded ? "w-[220px] overflow-y-auto" : "w-[80px]"
         }`}
       >
         {/* Sidebar Header */}
@@ -122,7 +122,7 @@ const AppLayout = ({ children }: any) => {
       >
         {children}
       </div>
-    </main>
+    </div>
   );
 };
 
